@@ -1,8 +1,10 @@
 package one.digitalinnovation.parking.service;
 
+import one.digitalinnovation.parking.controller.mapper.ParkingMapper;
 import one.digitalinnovation.parking.model.Parking;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -13,15 +15,30 @@ public class ParkingService {
 
     static {
         var id = getUUID();
+        var id1 = getUUID();
         Parking parking = new Parking(id, "DMS-1111", "SC", "CELTA", "PRETO");
+        Parking parking1 = new Parking(id1, "ADS-2222", "PR", "VW GOL", "BRANCO");
         parkingMap.put(id, parking);
+        parkingMap.put(id1, parking1);
     }
 
     public List<Parking> findAll() {
-        return parkingMap.values().stream().collect(Collectors.toList());
+        return new ArrayList<>(parkingMap.values());
     }
 
     private static String getUUID() {
         return UUID.randomUUID().toString().replace("-", "");
+    }
+
+    public Parking findById(String id) {
+        return parkingMap.get(id);
+    }
+
+    public Parking create(Parking parkingCreate) {
+        String uuid = getUUID();
+        parkingCreate.setId(uuid);
+        parkingCreate.setEntryDate(LocalDateTime.now());
+        parkingMap.put(uuid, parkingCreate);
+        return parkingCreate;
     }
 }
