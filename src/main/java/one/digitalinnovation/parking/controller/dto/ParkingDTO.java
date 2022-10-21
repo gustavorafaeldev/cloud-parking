@@ -13,6 +13,8 @@ public class ParkingDTO {
     private String model;
     private String color;
 
+    private double bill;
+
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     private LocalDateTime entryDate;
 
@@ -73,5 +75,13 @@ public class ParkingDTO {
 
     public void setExitDate(LocalDateTime exitDate) {
         this.exitDate = exitDate;
+    }
+
+    public double getBill() {
+        return bill;
+    }
+
+    public void setBill(double bill) {
+        this.bill = bill;
     }
 }

@@ -15,6 +15,7 @@ public class Parking {
     private String color;
     private LocalDateTime entryDate;
     private LocalDateTime exitDate;
+    private double bill;
 
     public Parking(String id, String license, String state, String model, String color) {
         this.id = id;
@@ -81,5 +82,13 @@ public class Parking {
 
     public void setExitDate(LocalDateTime exitDate) {
         this.exitDate = exitDate;
+    }
+
+    public double getBill() {
+        return bill;
+    }
+
+    public void setBill(double bill) {
+        this.bill = bill;
     }
 }
