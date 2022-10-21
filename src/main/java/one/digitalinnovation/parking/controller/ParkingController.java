@@ -1,6 +1,5 @@
 package one.digitalinnovation.parking.controller;
 
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import one.digitalinnovation.parking.controller.dto.ParkingCreateDTO;
 import one.digitalinnovation.parking.controller.dto.ParkingDTO;
 import one.digitalinnovation.parking.controller.mapper.ParkingMapper;
